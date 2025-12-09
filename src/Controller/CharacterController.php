@@ -47,9 +47,8 @@ class CharacterController extends AbstractController
     }
 
     #[Route('/{id}', name: 'character_show', methods: ['GET'])]
-    public function show(): Response
+    public function show(Character $character): Response
     {
-        $character = $this->characterRepository->find($id);
 
         return $this->render('character/show.html.twig', [
             'character' => $character,
